@@ -2,10 +2,13 @@ package StreamsAPI;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class Problem01 {
+
     public static void main(String[] args) {
-        ArrayList<String> name = new ArrayList<>(20);
+        List <String> name = new ArrayList<>(20);
         name.add("Ahmedabad");
         name.add("Ahilyanagar");
         name.add("Akola");
@@ -27,10 +30,23 @@ public class Problem01 {
         name.add("Amritsar");
         name.add("Ajmer");
 
-        Collections.sort(name);
+
+        //System.out.println(name);
+
         for(int i=0; i<name.size(); i++) {
             if(name.get(i).startsWith("a")||name.get(i).startsWith("A")) {
-                System.out.println(name.get(i) + "->" + name.get(i).length());
+                Collections.sort(name, new Comparator<String>() {
+                    @Override
+                    public int compare(String o1, String o2) {
+                        return o1.length()-o2.length();
+                    }
+                });
+            }
+        }
+
+        for(int i=0; i<name.size(); i++) {
+            if(name.get(i).startsWith("a")||name.get(i).startsWith("A")) {
+                System.out.println(name.get(i)+"->"+name.get(i).length());
             }
         }
     }
