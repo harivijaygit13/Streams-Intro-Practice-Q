@@ -9,7 +9,7 @@ public class Problem01 {
         name.add("Ahmedabad");
         name.add("Ahilyanagar");
         name.add("Akola");
-        name.add("Amravati");
+        name.add("amravati");
         name.add("Beed");
         name.add("Latur");
         name.add("Jalna");
@@ -29,7 +29,7 @@ public class Problem01 {
 
         Collections.sort(name);
         for(int i=0; i<name.size(); i++) {
-            if(name.get(i).contains("A")) {
+            if(name.get(i).startsWith("a")||name.get(i).startsWith("A")) {
                 System.out.println(name.get(i) + "->" + name.get(i).length());
             }
         }
